@@ -119,6 +119,12 @@ function String_isPhoneno(phoneno,format){
     }
 
 }
+
+/**
+     * This function validates if a string is valid email id or not.
+     * @param email String that needs to be validated.
+     * @return True if valid email id, false if invalid.
+     */
 function String_isEmail(email){
     
     var re= new RegExp("^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
