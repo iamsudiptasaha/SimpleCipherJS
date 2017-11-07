@@ -119,7 +119,11 @@ function String_isPhoneno(phoneno,format){
     }
 
 }
-
+function String_isEmail(email){
+    
+    var re= new RegExp("^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
+    return re.test(email);
+}
 /**
  * This function validates if a string is valid a valid name. The honorific is allowed if user defined.
  * @param name String that needs to be validated.
