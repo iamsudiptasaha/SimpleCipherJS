@@ -54,6 +54,24 @@ function String_isCustomLastWord(word,delimeters){
     return re.test(word);
 }
 
+
+/**
+ * This function validates a string having one or more words with custom seperator or seperators. The seperators are user defined.
+ * @param word String that needs to be validated.
+ *
+ * @param seperator The ending parameter for each word to validate word termination. The parameters
+ * should be placed in sequence without any gaps. For backslash, you need to put '\\\\' because the
+ * string parser will remove two of them when "de-escaping" it for the string, and then the regex needs
+ * two for an escaped regex backslash.
+ * <pre>For example : isCustomLastWord(yourString,"/}\\\\") will check for /, }, \ as word termination parameters.</pre>
+ *
+ * @return True if the String is a valid word, else false.
+ */
+function String_isWordWithSeparator(word,seperator){
+  var re = new RegExp("^(([A-Z]{0,1}[a-z]+(-[a-z]){0,1}[a-z]*[']{0,1}[a-z]*)+[']{0,1})((["+delimeters+"]{1})\\s(([A-Z]{0,1}[a-z]+(-[a-z]){0,1}[a-z]*[']{0,1}[a-z]*)+[']{0,1}))*$");
+  return re.test(word);
+}
+
 /**
  * This function validates if a string is valid a sentence.
  * @param sentence String that needs to be validated.
@@ -120,16 +138,6 @@ function String_isPhoneno(phoneno,format){
 
 }
 
-/**
-     * This function validates if a string is valid email id or not.
-     * @param email String that needs to be validated.
-     * @return True if valid email id, false if invalid.
-     */
-function String_isEmail(email){
-    
-    var re= new RegExp("^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
-    return re.test(email);
-}
 /**
  * This function validates if a string is valid a valid name. The honorific is allowed if user defined.
  * @param name String that needs to be validated.
